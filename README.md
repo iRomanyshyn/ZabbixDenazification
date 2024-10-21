@@ -25,8 +25,10 @@ location ~* /assets/img/touch-icon-192x192\.png {
     expires max;
 }
 ```
+Usually, the configuration file can be found somewhere in `/etc/nginx/sites-enabled/` or `/etc/nginx/conf.d/`. In Ubuntu, it is a link `/etc/nginx/conf.d/zabbix.conf -> /etc/zabbix/nginx.conf`.
+After changing the config file, run `sudo systemctl reload nginx.service` to reload the configuration into Nginx.
 
-Note: If the `favicon.ico` is already referenced elsewhere in the Nginx configuration, update that existing line rather than adding a new one.
+Note: If the `favicon.ico` is already referenced elsewhere in the Nginx configuration, update that existing line rather than adding a new one as multiple references to the same path may break the configuration.
 
 ## Creating Icons
 
