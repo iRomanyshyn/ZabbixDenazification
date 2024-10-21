@@ -34,6 +34,15 @@ Note: If the `favicon.ico` is already referenced elsewhere in the Nginx configur
 
 You can generate the necessary icon files using ImageMagick or GIMP. These custom icons should be stored in the `/usr/share/zabbix/branding/custom-icons/` directory.
 
+```
+- favicon.ico
+- apple-touch-icon-76x76-precomposed.png
+- apple-touch-icon-120x120-precomposed.png
+- apple-touch-icon-152x152-precomposed.png
+- apple-touch-icon-180x180-precomposed.png
+- touch-icon-192x192.png
+```
+
 ## Custom Branding
 
 To further customize Zabbix's appearance, you can modify the branding using a hidden feature that is not mentioned in the official manuals anymore. This can be done by creating or editing the following file:
