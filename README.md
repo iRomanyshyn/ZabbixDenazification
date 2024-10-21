@@ -1,6 +1,8 @@
 # Customizing Zabbix Branding and Icons in Nginx
 
-To replace Zabbix's default icons and branding elements, follow the steps outlined below. This method utilizes Nginx configuration and custom icon files.
+Follow the steps outlined below to replace Zabbix's default icons and branding elements. This method utilizes Nginx configuration and custom icon files.
+
+This method worked on 5.4, is still effective on Zabbix version 6.4, and has not been tested on version 7.
 
 ## Nginx Configuration
 
@@ -28,7 +30,7 @@ Note: If the `favicon.ico` is already referenced elsewhere in the Nginx configur
 
 You can generate the necessary icon files using ImageMagick or GIMP. These custom icons should be stored in the `/usr/share/zabbix/branding/custom-icons/` directory.
 
-With these changes, the only elements left that indicate this is a Zabbix system are the URL, overall design, and mentions in templates.
+With these changes, the only elements that indicate this is a Zabbix system are the URL, overall design, and mentions in templates.
 
 ## Custom Branding
 
