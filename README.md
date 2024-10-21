@@ -1,8 +1,8 @@
 # Customizing Zabbix Branding and Icons in Nginx
 
-Since the beginning of the russian invasion of Ukraine, the simple letter "Z" has become a symbol of pain, blood, torture, and a new form of Nazism, disguised under the pretense of "liberation" of a peaceful people and a peaceful country from something unknown — perhaps from life itself, or at least from peace. This guide has been created precisely for this reason: although the developers of Zabbix are not primarily russians, some among them likely promote their unwelcome perspectives.
+Since the beginning of the russian invasion of Ukraine, the simple letter "Z" has become a symbol of pain, blood, torture, and a new form of Nazism, disguised under the pretense of "liberation" of a peaceful people and a peaceful country from something unknown — perhaps from life itself, or at least from peace. This guide has been created precisely for this reason: although the developers of Zabbix are not primarily russians, some among them likely promote their unwelcome perspectives. I don't want people to see my screen somewhere in public and think I am a ru-nazi supporter so I prefer to change the icon. 
 
-Follow the steps outlined below to replace Zabbix's default icons and branding elements. This method utilizes Nginx configuration and custom icon files.
+Follow the steps outlined below to replace Zabbix's default icons and branding elements. This method utilizes Nginx configuration and custom icon files. This manual assumes the person has some experience with Linux and Nginx configuration.
 
 This method worked on 5.4, is still effective on Zabbix version 6.4, and has not been tested on version 7.
 
@@ -33,8 +33,6 @@ Note: If the `favicon.ico` is already referenced elsewhere in the Nginx configur
 ## Creating Icons
 
 You can generate the necessary icon files using ImageMagick or GIMP. These custom icons should be stored in the `/usr/share/zabbix/branding/custom-icons/` directory.
-
-With these changes, the only elements that indicate this is a Zabbix system are the URL, overall design, and mentions in templates.
 
 ## Custom Branding
 
