@@ -6,7 +6,7 @@ To replace Zabbix's default icons and branding elements, follow the steps outlin
 
 In the Nginx configuration for Zabbix, under the relevant `server` section, add the following lines to handle the custom icons:
 
-```conf
+```nginx
 location = /favicon.ico {
     log_not_found   off;
     alias /usr/share/zabbix/branding/custom-icons/favicon.ico;
