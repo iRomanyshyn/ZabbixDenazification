@@ -2,13 +2,15 @@
 
 Since the beginning of the russian invasion of Ukraine, the simple letter "Z" has become a symbol of pain, blood, torture, and a new form of Nazism, disguised under the pretense of "liberation" of a peaceful people and a peaceful country from something unknown — perhaps from life itself, or at least from peace. This guide has been created precisely for this reason: although the developers of Zabbix are not primarily russians, some among them likely promote their unwelcome perspectives. I don't want people to see my screen somewhere in public and think I am a ru-nazi supporter so I prefer to change the icon. 
 
-Follow the steps outlined below to replace Zabbix's default icons and branding elements. This method utilizes Nginx configuration and custom icon files. This manual assumes the person has some experience with Linux and Nginx configuration.
+Follow the steps below to replace Zabbix's default icons and branding elements. This method utilizes Nginx configuration and custom icon files. This manual assumes the person has some experience with Linux and Nginx configuration.
 
 This method worked on 5.4, is still effective on Zabbix version 6.4, and has not been tested on version 7.
 
 ## Notice!
 
 **Starting with version 7.2, the branding paths start from `/usr/share/zabbix/ui/` so the branding php file must be located at `/usr/share/zabbix/ui/local/conf/brand.conf.php` and images should be located in the subdirectory of `/usr/share/zabbix/ui/` (for example, `/usr/share/zabbix/ui/branding`). Also, it means the root directory of the UI is `/usr/share/zabbix/ui/` in the web server configuration.**
+
+There is another [instruction](https://git.initmax.cz/initMAX-Public/Zabbix-UI-Rebranding-skeleton), and someone may find it more friendly. They posted it a few days after my instruction.
 
 ## Nginx Configuration
 
