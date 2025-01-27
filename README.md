@@ -6,6 +6,10 @@ Follow the steps outlined below to replace Zabbix's default icons and branding e
 
 This method worked on 5.4, is still effective on Zabbix version 6.4, and has not been tested on version 7.
 
+## Notice!
+
+**Starting with version 7.2, the branding paths start from `/usr/share/zabbix/ui/` so the branding php file must be located at `/usr/share/zabbix/ui/local/conf/brand.conf.php` and images should be located in the subdirectory of `/usr/share/zabbix/ui/` (for example, `/usr/share/zabbix/ui/branding`). Also, it means the root directory of the UI is `/usr/share/zabbix/ui/` in the web server configuration.**
+
 ## Nginx Configuration
 
 In the Nginx configuration for Zabbix, under the relevant `server` section, add the following lines to handle the custom icons:
