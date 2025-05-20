@@ -1,16 +1,18 @@
 # Customizing Zabbix Branding and Icons in Nginx
 
-Since the beginning of the russian invasion of Ukraine, the simple letter "Z" has become a symbol of pain, blood, torture, and a new form of Nazism, disguised under the pretense of "liberation" of a peaceful people and a peaceful country from something unknown — perhaps from life itself, or at least from peace. This guide has been created precisely for this reason: although the developers of Zabbix are not primarily russians, some among them likely promote their unwelcome perspectives. I don't want people to see my screen somewhere in public and think I am a ru-nazi supporter so I prefer to change the icon. 
+Since the beginning of the russian invasion of Ukraine, the simple letter "Z" has become a symbol of pain, blood, torture, and a new form of Nazism, disguised under the pretense of "liberation" of a peaceful people and a peaceful country from something unknown — perhaps from life itself, or at least from peace. This guide has been created precisely for this reason: although the developers of Zabbix are not primarily russians, some among them likely promote their unwelcome perspectives. I don't want people to see my screen somewhere in public and think I am a ru-nazi supporter, so I prefer to change the icon.
 
 Follow the steps below to replace Zabbix's default icons and branding elements. This method utilizes Nginx configuration and custom icon files. This manual assumes the person has some experience with Linux and Nginx configuration.
 
-This method worked on 5.4, is still effective on Zabbix version 6.4, and has not been tested on version 7.
+This method worked on version 5.4 and is still effective on Zabbix version 7.2 (but the branding path changed, see notice).
 
 ## Notice!
 
-**Starting with version 7.2, the branding paths start from `/usr/share/zabbix/ui/` so the branding php file must be located at `/usr/share/zabbix/ui/local/conf/brand.conf.php` and images should be located in the subdirectory of `/usr/share/zabbix/ui/` (for example, `/usr/share/zabbix/ui/branding`). Also, it means the root directory of the UI is `/usr/share/zabbix/ui/` in the web server configuration.**
+**For Zabbix versions before 7.2, the branding path begins with `/usr/share/zabbix/`, so the branding php file must be located at `/usr/share/zabbix/local/conf/brand.conf.php` and images should be located in the subdirectory of `/usr/share/zabbix/` (for example, `/usr/share/zabbix/branding/`).**
 
-There is another [instruction](https://git.initmax.cz/initMAX-Public/Zabbix-UI-Rebranding-skeleton), and someone may find it more friendly. They posted it a few days after my instruction.
+**Starting with version 7.2, the branding paths start from `/usr/share/zabbix/ui/`, so the branding php file must be located at `/usr/share/zabbix/ui/local/conf/brand.conf.php` and images should be located in the subdirectory of `/usr/share/zabbix/ui/` (for example, `/usr/share/zabbix/ui/branding/`). Also, it means the root directory of the UI is `/usr/share/zabbix/ui/` in the web server configuration.**
+
+There is another [instruction](https://git.initmax.cz/initMAX-Public/Zabbix-UI-Rebranding-skeleton), and someone may find it more friendly. They posted it a few days after my instructions.
 
 ## Nginx Configuration
 
@@ -19,22 +21,22 @@ In the Nginx configuration for Zabbix, under the relevant `server` section, add 
 ```nginx
 location = /favicon.ico {
     log_not_found   off;
-    alias /usr/share/zabbix/branding/custom-icons/favicon.ico;
+    alias /usr/share/zabbix/ui/branding/custom-icons/favicon.ico;
     expires max;
 }
 location ~* /assets/img/apple-touch-icon-(76x76|120x120|152x152|180x180)-precomposed\.png {
-    alias /usr/share/zabbix/branding/custom-icons/apple-touch-icon-$1-precomposed.png;
+    alias /usr/share/zabbix/ui/branding/custom-icons/apple-touch-icon-$1-precomposed.png;
     expires max;
 }
 location ~* /assets/img/touch-icon-192x192\.png {
-    alias /usr/share/zabbix/branding/custom-icons/touch-icon-192x192.png;
+    alias /usr/share/zabbix/ui/branding/custom-icons/touch-icon-192x192.png;
     expires max;
 }
 ```
-Usually, the configuration file can be found somewhere in `/etc/nginx/sites-enabled/` or `/etc/nginx/conf.d/`. In Ubuntu, it is a link `/etc/nginx/conf.d/zabbix.conf -> /etc/zabbix/nginx.conf`.
+Usually, the configuration file is in `/etc/nginx/sites-enabled/` or `/etc/nginx/conf.d/`. In Ubuntu, it is a link `/etc/nginx/conf.d/zabbix.conf -> /etc/zabbix/nginx.conf`.
 After changing the config file, run `sudo systemctl reload nginx.service` to reload the configuration into Nginx.
 
-Note: If the `favicon.ico` is already referenced elsewhere in the Nginx configuration, update that existing line rather than adding a new one as multiple references to the same path may break the configuration.
+Note: If the `favicon.ico` is already referenced elsewhere in the Nginx configuration, update that existing line rather than adding a new one, as multiple references to the same path may break the configuration.
 
 ## Creating Icons
 
@@ -52,7 +54,7 @@ You can generate the necessary icon files using ImageMagick or GIMP. These custo
 
 To further customize Zabbix's appearance, you can modify the branding using a hidden feature that is not mentioned in the official manuals anymore. This can be done by creating or editing the following file:
 
-**Path:** `/usr/share/zabbix/local/conf/brand.conf.php`
+**Path:** `/usr/share/zabbix/ui/local/conf/brand.conf.php`
 
 ### Full File Example:
 
